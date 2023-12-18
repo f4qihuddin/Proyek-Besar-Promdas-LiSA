@@ -7,5 +7,5 @@ Anggota :
 3. Muhammad Reyvanata
 4. Eko Purwanto
 5. Ahmad Yasin
-6. Agnes
+6. Agnes Sabila Arrahma
 7. Khairana Mazaya
