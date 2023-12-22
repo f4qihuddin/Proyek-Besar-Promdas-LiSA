@@ -203,6 +203,57 @@ int main ()
                         }
                     }
                 }
+                else if (opsi2 == 2)
+                {
+                    printf(" \nIngin Mengedit Status Daftar Tugas (y/n)? ");
+                    scanf(" %c", &konfirmasi2);
+
+                    while (konfirmasi2 == 'y')
+                    {
+                        printf(" \nNomor Tugas: ");
+                        scanf("%d", &nomorTugas);
+
+                        printf(" \n-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
+                        scanf("%d", &opsi3);
+
+                        if (opsi3 == 1)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
+                        }
+
+                        else if (opsi3 == 2)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
+                        }
+
+                        else if (opsi3 == 3)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "Done");
+                        }
+
+                        else
+                        {
+                            printf(" \nMasukkan Opsi yang Benar!\n \n");
+                        }
+
+                        printf(" \nIngin Mengedit Status Daftar Tugas (y/n)? ");
+                        scanf(" %c", &konfirmasi2);
+                    }
+
+                    for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                    {
+                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
+                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
+                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                        {
+                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                        }
+                    }
+                }
             }
         }
     }
