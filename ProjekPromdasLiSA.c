@@ -171,7 +171,36 @@ int main ()
                         {
                             strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
                         }
+                        else if (opsi3 == 2)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
+                        }
 
+                        else if (opsi3 == 3)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "Done");
+                        }
+
+                        else
+                        {
+                            printf(" \nMasukkan Opsi yang Benar!\n \n");
+                        }
+                        printf("Ingin Membuat Daftar Tugas (y/n)? ");
+                        scanf(" %c", &konfirmasi);
+                    }
+
+                    for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                    {
+                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") !=0 ) ||
+                            (status(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
+                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
+                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
+                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                        {
+                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                        }
                     }
                 }
             }
