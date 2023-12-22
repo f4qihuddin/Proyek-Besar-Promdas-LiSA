@@ -130,12 +130,12 @@ int main ()
                        "4. Hapus Daftar Tugas\n"
                        "5. Kembali ke Menu Utama\n"
                        "Pilih Opsi : ");
-                scanf("%d", &opsi : ");
+                scanf("%d", &opsi);
 
                 if (opsi2 == 1)
                 {
                     printf(" \nIngin Membuat Dastar Tugas (y/n? ");
-                    scanf("%c", &konfirmasi);
+                    scanf(" %c", &konfirmasi);
 
                     while (konformasi == 'y')
                     {
@@ -167,7 +167,7 @@ int main ()
                         printf("-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
                         scanf("%d", &opsi3);
 
-                         if (opsi3 == 1)
+                        if (opsi3 == 1)
                         {
                             strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
                         }
