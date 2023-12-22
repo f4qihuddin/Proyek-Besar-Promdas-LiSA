@@ -118,6 +118,63 @@ int main ()
                   "sign In berhasil!\n"
                   "              \n");
             signInBerhasil = 1;
+            
+            while (signInBerhasil == 1)
+            {
+                keMenuUtama == 0;
+                printf("--Menu LiSA--\n"
+                       "             \n"
+                       "1. Buat Daftar Tugas\n"
+                       "2. Edit Status Daftar Tugas\n"
+                       "3. Filter Daftar Tugas\n"
+                       "4. Hapus Daftar Tugas\n"
+                       "5. Kembali ke Menu Utama\n"
+                       "Pilih Opsi : ");
+                scanf("%d", &opsi : ");
+
+                if (opsi2 == 1)
+                {
+                    printf(" \nIngin Membuat Dastar Tugas (y/n? ");
+                    scanf("%c", &konfirmasi);
+
+                    while (konformasi == 'y')
+                    {
+                        printf("Nomor Tugas (1-50): ");
+                        scanf("%d", &nomorTugas);
+
+                        getchar();
+
+                        printf("Nama Tugas : ");
+                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].namaTugas);
+
+                        printf("Matkul      :");
+                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].matkul);
+
+                        printf("Detail      :");
+                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].detail);
+
+                        printf("-Deadline-\n");
+                        printf("Tanggal : ");
+                        scanf("%d", &daftarTugasKuliah[nomorTugas].deadline.tanggal);
+                        printf("Bulan   : ");
+                        scanf("%s", daftarTugasKuliah[nomorTugas].deadline.bulan);
+                        printf("Tahun   : ");
+                        scanf("%d", &daftarTugasKuliah[nomorTugas].deadline.tahun);
+
+                        printf("-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
+                        scanf("%d", &opsi3);
+
+                         if (opsi3 == 1)
+                        {
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
+                        }
+
+                    }
+                }
+            }
         }
     }
 }
