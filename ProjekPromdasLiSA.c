@@ -338,3 +338,80 @@ int main ()
                                     }
                                 }
 }
+                            else if (opsi5 == 3)
+                            {
+                                for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                                {
+                                    if (strcmp(daftarTugasKuliah[nomorTugas].status, "Done") == 0)
+                                    {
+                                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                                        {
+                                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                                        }
+                                    }
+                                }
+                            }
+
+                            else
+                            {
+                                printf(" \nMasukkan Opsi yang Benar!\n \n");
+                            }
+                        }
+
+                        else if (opsi4 == 3)
+                        {
+                            printf(" \nDeadline :\n1. Tanggal\n2. Bulan\n3. Tahun\n4. Tanggal/Bulan/Tahun\nPilih Opsi :");
+                            scanf("%d", &opsi6);
+
+                            if (opsi6 == 1)
+                            {
+                                printf("Tanggal : ");
+                                scanf("%d", &inputTanggal);
+
+                                for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                                {
+                                    if (daftarTugasKuliah[nomorTugas].deadline.tanggal == inputTanggal)
+                                    {
+                                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                                        {
+                                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                                        }
+                                    }
+                                }
+                            }
+
+                            else if (opsi6 == 2)
+                            {
+                                printf("Bulan : ");
+                                scanf("%s", inputBulan);
+
+                                for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                                {
+                                    if (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, inputBulan) == 0)
+                                    {
+                                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
+                                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
+                                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                                        {
+                                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                                        }
+                                    }
+                                }
+                            }
+
