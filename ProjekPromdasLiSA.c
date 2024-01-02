@@ -1,34 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void inputKalimat(char inputKata[500], char kalimat[500])
+void inputKalimat(char inputKata[500])
 {
-    int indeksKalimat = 0, indeksInputKata = 0, indeksKata = 0, indeksOutputKata = 0;
-    char kata[500] = "";
-    kalimat[0] = '\0';
-
-    while (inputKata[indeksInputKata] != '\0')
+    size_t len = strlen(inputKata);
+    if (len > 0 && inputKata[len - 1] == '\n')
     {
-        while (inputKata[indeksInputKata] != ' ' && inputKata[indeksInputKata] != '\0')
-        {
-            kata[indeksKata] = inputKata[indeksInputKata];
-            indeksKata++;
-            indeksInputKata++;
-        }
-
-        while (indeksOutputKata < indeksKata)
-        {
-            kalimat[indeksKalimat] = kata[indeksOutputKata];
-            indeksKalimat++;
-            indeksOutputKata++;
-        }
-
-        kalimat[indeksKalimat++] = ' ';
-
-        if (inputKata[indeksInputKata] == ' ')
-        {
-            indeksInputKata++;
-        }
+        inputKata[len - 1] = '\0';
     }
 }
 
@@ -41,30 +19,63 @@ struct deadlineTugas
 
 struct daftarTugas
 {
-    char namaTugas[50];
-    char matkul[50];
-    char detail[50];
+    char namaTugas[500];
+    char matkul[500];
+    char detail[500];
     char status[50];
     struct deadlineTugas deadline;
 };
 
-void tampilanDaftarTugas(int nomorTugas, char namaTugas[50], char matkul[50], char detail[50], char status[50], int tanggal, char bulan[50], int tahun)
+void tampilanDaftarTugas(int nomorTugas, char namaTugas[500], char matkul[500], char detail[500], char status[50], int tanggal, char bulan[50], int tahun)
 {
-    printf(" \n"
-           "%d. Nama Tugas  : %s\n"
-           "   Matkul      : %s\n"
-           "   Detail      : %s\n"
-           "   Deadline    : %d/%s/%d\n"
-           "   Status      : %s\n"
-           "                    \n",
-           nomorTugas,
-           namaTugas,
-           matkul,
-           detail,
-           tanggal,
-           bulan,
-           tahun,
-           status);
+    if ((strcmp(namaTugas, "") != 0) ||
+        (strcmp(matkul, "") != 0) ||
+        (strcmp(detail, "") != 0) ||
+        (strcmp(status, "") != 0) ||
+        (tanggal != 0) ||
+        (strcmp(bulan, "") != 0) ||
+        (tahun != 0))
+    {
+        printf(" \n"
+               "%d. Nama Tugas  : %s\n \n"
+               "   Matkul      : %s\n \n"
+               "   Detail      : %s\n \n"
+               "   Deadline    : %d/%s/%d\n \n"
+               "   Status      : %s\n"
+               " \n",
+               nomorTugas,
+               namaTugas,
+               matkul,
+               detail,
+               tanggal,
+               bulan,
+               tahun,
+               status);
+    }
+}
+
+int keMenuLisa(char konfirmasi5)
+{
+    if (konfirmasi5 == 'y')
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int keMenuFilter(char konfirmasi6)
+{
+    if (konfirmasi6 == 'y')
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 int main ()
