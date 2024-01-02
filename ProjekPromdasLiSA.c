@@ -229,46 +229,113 @@ int main ()
                         }
                     }
                 }
-            }
-        }
-    }
-}
-
-                else if (opsi2 == 3)
+            else if (opsi2 == 2)
                 {
-                    printf(" \nIngin Mem-filter Daftar Tugas (y/n)? ");
-                    scanf(" %c", &konfirmasi3);
-
-                    while (konfirmasi3 == 'y')
+                    while (menuLisa == 0)
                     {
-                        printf(" \nFilter Berdasarkan:\n1. Matkul\n2. Status Tugas\n3. Deadline\n4. Kembali ke Menu LiSA\nPilih Opsi : ");
-                        scanf("%d", &opsi4);
-                        getchar();
+                        printf(" \nIngin Mengedit Status Daftar Tugas (y/t)? ");
+                        scanf(" %c", &konfirmasi2);
 
-                        if (opsi4 == 1)
+                        if (konfirmasi2 != 'y')
                         {
-                            printf(" \nMatkul: ");
-                            fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
-                            inputKalimat(inputKata, inputMatkul);
-
-                            for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
-                            {
-                                if (strcmp(daftarTugasKuliah[nomorTugas].matkul, inputMatkul) == 0)
-                                {
-                                    if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
-                                        (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
-                                        (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
-                                        (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
-                                        (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
-                                        (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
-                                        (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
-                                    {
-                                        tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
-                                    }
-                                }
-                            }
+                            menuLisa = 1;
                         }
 
+                        while (konfirmasi2 == 'y')
+                        {
+                            printf(" \nNomor Tugas: ");
+                            scanf("%d", &nomorTugas);
+
+                            menuStatus = 0;
+                            while (menuStatus == 0)
+                            {
+                                printf(" \n-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
+                                scanf("%d", &opsi3);
+
+                                if (opsi3 == 1)
+                                {
+                                    strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
+                                    menuStatus = 1;
+                                }
+
+                                else if (opsi3 == 2)
+                                {
+                                    strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
+                                    menuStatus = 1;
+                                }
+
+                                else if (opsi3 == 3)
+                                {
+                                    strcpy(daftarTugasKuliah[nomorTugas].status, "Done");
+                                    menuStatus = 1;
+                                }
+
+                                else
+                                {
+                                    printf(" \nMasukkan Opsi yang Benar!\n");
+                                }
+                            }
+
+                            printf(" \nIngin Mengedit Status Daftar Tugas Lagi (y/t)? ");
+                            scanf(" %c", &konfirmasi2);
+                        }
+
+                        while (menuLisa == 0)
+                        {
+                            printf(" \n------------------------- DAFTAR TUGAS -------------------------------\n");
+                            for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                            {
+                                tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                            }
+                            printf("----------------------------------------------------------------------\n");
+                            printf(" \nKembali ke Menu LiSA (y/t)? ");
+                            scanf(" %c", &konfirmasi5);
+                            menuLisa = keMenuLisa(konfirmasi5);
+                        }
+                    }
+                }
+                else if (opsi2 == 3)
+                {
+                    while (menuLisa == 0)
+                    {
+                        printf(" \nIngin Mem-filter Daftar Tugas (y/t)? ");
+                        scanf(" %c", &konfirmasi3);
+
+                        if (konfirmasi3 != 'y')
+                        {
+                            menuLisa = 1;
+                        }
+
+                        while (konfirmasi3 == 'y')
+                        {
+                            menuFilter = 0;
+                            printf(" \nFilter Berdasarkan:\n1. Matkul\n2. Status Tugas\n3. Deadline\n4. Kembali ke Menu LiSA\nPilih Opsi : ");
+                            scanf("%d", &opsi4);
+                            getchar();
+
+                            if (opsi4 == 1)
+                            {
+                                printf(" \nMatkul: ");
+                                fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                                inputKalimat(inputKata);
+                                strcpy(inputMatkul, inputKata);
+
+                                while (menuFilter == 0)
+                                {
+                                    printf(" \n------------------------- DAFTAR TUGAS -------------------------------\n");
+                                    for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                                    {
+                                        if (strcmp(daftarTugasKuliah[nomorTugas].matkul, inputMatkul) == 0)
+                                        {
+                                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                                        }
+                                    }
+                                    printf("----------------------------------------------------------------------\n");
+                                    printf(" \nKembali ke Menu Filter (y/t)? ");
+                                    scanf(" %c", &konfirmasi6);
+                                    menuFilter = keMenuFilter(konfirmasi6);
+                                }
+                            }
                         else if (opsi4 == 2)
                         {
                             printf(" \nStatus Tugas :\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
