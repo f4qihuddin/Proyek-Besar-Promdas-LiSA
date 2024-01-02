@@ -146,130 +146,86 @@ int main ()
                        "6. Kembali ke Menu Utama\n"
                        "Pilih OPsi : ");
                 scanf("%d", &opsi2);
-            }
-        }
-    }
-}
-
-                if (opsi2 == 1)
+                 if (opsi2 == 1)
                 {
-                    printf(" \nIngin Membuat Dastar Tugas (y/n? ");
-                    scanf(" %c", &konfirmasi);
-
-                    while (konformasi == 'y')
+                    while (menuLisa = 0)
                     {
-                        printf("Nomor Tugas (1-50): ");
-                        scanf("%d", &nomorTugas);
-
-                        getchar();
-
-                        printf("Nama Tugas : ");
-                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
-                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].namaTugas);
-
-                        printf("Matkul      :");
-                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
-                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].matkul);
-
-                        printf("Detail      :");
-                        fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
-                        inputKalimat(inputKata, daftarTugasKuliah[nomorTugas].detail);
-
-                        printf("-Deadline-\n");
-                        printf("Tanggal : ");
-                        scanf("%d", &daftarTugasKuliah[nomorTugas].deadline.tanggal);
-                        printf("Bulan   : ");
-                        scanf("%s", daftarTugasKuliah[nomorTugas].deadline.bulan);
-                        printf("Tahun   : ");
-                        scanf("%d", &daftarTugasKuliah[nomorTugas].deadline.tahun);
-
-                        printf("-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
-                        scanf("%d", &opsi3);
-
-                        if (opsi3 == 1)
-                        {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
-                        }
-                        else if (opsi3 == 2)
-                        {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
-                        }
-
-                        else if (opsi3 == 3)
-                        {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "Done");
-                        }
-
-                        else
-                        {
-                            printf(" \nMasukkan Opsi yang Benar!\n \n");
-                        }
-                        printf("Ingin Membuat Daftar Tugas (y/n)? ");
+                        printf(" \nIngin membuat daftar tugas (y/t)? ");
                         scanf(" %c", &konfirmasi);
-                    }
 
-                    for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
-                    {
-                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") !=0 ) ||
-                            (status(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
-                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
-                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
+                        if (konfirmasi != 'y')
                         {
-                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
-                        }
-                    }
-                }
-                else if (opsi2 == 2)
-                {
-                    printf(" \nIngin Mengedit Status Daftar Tugas (y/n)? ");
-                    scanf(" %c", &konfirmasi2);
-
-                    while (konfirmasi2 == 'y')
-                    {
-                        printf(" \nNomor Tugas: ");
-                        scanf("%d", &nomorTugas);
-
-                        printf(" \n-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi :");
-                        scanf("%d", &opsi3);
-
-                        if (opsi3 == 1)
-                        {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
+                            menuLisa = 1;
                         }
 
-                        else if (opsi3 == 2)
+                        while (konfirmasi == 'y')
                         {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
+                            prinf("Nomor Tugas (1-50): ");
+                            scanf("%d", &nomorTugas);
+
+                            getchar();
+
+                            prinf("Nama Tugas : ");
+                            fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                            inputKalimat(inputKata);
+                            strcpy(daftarTugasKuliah[nomorTugas].namaTugas, inputKata);
+
+                            prinf("Matkul : ");
+                            fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                            inputKalimat(inputKata);
+                            strcpy(daftarTugasKuliah[nomorTugas].matkul, inputKata);
+
+                            prinf("Detail : ");
+                            fgets(inputKata, sizeof(inputKata) / sizeof(inputKata[0]), stdin);
+                            inputKalimat(inputKata);
+                            strcpy(daftarTugasKuliah[nomorTugas].detail, inputKata);
+
+                            printf("-Deadline-\n");
+                            printf("Tanggal : ");
+                            scanf("%d", &daftarTugaskuliah[nomorTugas].deadline.tanggal);
+                            printf("Bulan : ");
+                            scanf("%d", &daftarTugaskuliah[nomorTugas].deadline.bulan);
+                            printf("Tahun : ");
+                            scanf("%d", &daftarTugaskuliah[nomorTugas].deadline.tahun);
+
+                            menuStatus = 0;
+                            while (menuStatus == 0)
+                            {
+                                print("-Status-\n1. To-Do\n2. In Progress\n3. Done\nPilih Opsi ");
+                                scanf("%d", &opsi3);
+
+                                if (opsi3 == 1)
+                                {
+                                    strcpy(daftarTugasKuliah[nomorTugas].status, "To-Do");
+                                    menuStatus =
+                                }
+
+                                else if ( opsi3 == 2)
+                                {
+                                    strcpy(daftarTugasKuliah[nomorTugas].status, "In Progress");
+                                    menuStatus = 1;
+                                }
+
+                                else
+                                {
+                                    printf(" \nMasukkan Opsi yang Benar!\n \n");
+                                }
+                            }
+
+                            print("Ingin Membuat Daftar Tugas Lagi (y/t)? ");
+                            scanf(" &c", &konfirmasi);
                         }
-
-                        else if (opsi3 == 3)
+                        while (menuLisa == 0)
                         {
-                            strcpy(daftarTugasKuliah[nomorTugas].status, "Done");
-                        }
-
-                        else
-                        {
-                            printf(" \nMasukkan Opsi yang Benar!\n \n");
-                        }
-
-                        printf(" \nIngin Mengedit Status Daftar Tugas (y/n)? ");
-                        scanf(" %c", &konfirmasi2);
-                    }
-
-                    for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
-                    {
-                        if ((strcmp(daftarTugasKuliah[nomorTugas].namaTugas, "") != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].matkul, "") != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].detail, "") != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].status, "") != 0) ||
-                            (daftarTugasKuliah[nomorTugas].deadline.tanggal != 0) ||
-                            (strcmp(daftarTugasKuliah[nomorTugas].deadline.bulan, "") != 0) ||
-                            (daftarTugasKuliah[nomorTugas].deadline.tahun != 0))
-                        {
-                            tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                            prinf(" \n------------------------- DAFTAR TUGAS -------------------------------\n");
+                            for (nomorTugas = 1; nomorTugas <51; nomorTugas)
+                            {
+                                tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas], daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                            }
+                            printf("----------------------------------------------------------------------\n");
+                            printf(" \nKembali ke Menu LiSA (y/t)? ");
+                            scanf(" %c", &konfirmasi5);
+                            menuLisa = keMenuLisa(konfirmasi5);
                         }
                     }
                 }
