@@ -80,68 +80,76 @@ int keMenuFilter(char konfirmasi6)
 
 int main ()
 {
-    char username[50], password[50], usernameTersimpan[50], passwordTersimpan[50],
-    inputKata[50], inputMatkul[50], inputStatus[50], inputBulan[50];
-
-    int opsi, opsi2, opsi3, opsi4, opsi5, opsi6, nomorTugas, inputTanggal, 
-    inputTahun, signInBerhasil = 0, keMenuUtama = 1;
-
-    char konfirmasi, konfirmasi2, konfirmasi3, konfirmasi4;
+    char username[50], password[50], usernameTersimpan[50] = "", passwordTersimpan[50] = "", inputKata[500], inputMatkul[500], inputStatus[50], inputBulan[50];
+    int opsi, opsi2, opsi3, opsi4, opsi5, opsi6, nomorTugas, inputTanggal, inputTahun, sigInBerhasil = 0, keMenuUtama = 1, menuLisa = 0, menuFilter = 0, menuStatus = 0, menuDeadline = 0;
+    char konfirmasi, konfirmasi2, konfirmasi3, konfirmasi4, konfirmasi5, konfirmasi6, konfirmasi7;
 
     struct daftarTugas daftarTugasKuliah[51] = {0};
 
     while (keMenuUtama == 1)
     {
         signInBerhasil = 0;
-        printf(" \n--Selamat Datang di LiSA--\n1. Sign Up\n2. Sign In\n3. Exit\nPilih Opsi: ");
+        printf(" \n--Selamat Datang di LiSA--\n \n1. Sign In\n3. Exit\nPilih Opsi: ");
         scanf("%d", &opsi);
 
         if (opsi == 1)
         {
-            printf( \n--Daftarkan Akun Anda--\n");
-            printf("Buat Username: ");
+            printf(" \n--Daftarkan Akun Anda--\n \n");
+            printf("Buat Username : ");
             scanf("%s", username);
-            printf("Buat Password: ");
+            printf("Buat Password : ");
             scanf("%s", password);
 
             strcpy(usernameTersimpan, username);
             strcpy(passwordTersimpan, password);
-            printf(" \nUsername dan Password Tersimpan!\n");
+            printf("\nUsername dan Password Tersimpan!\n");
         }
 
-        else if (opsi == 2)
+        else if (opsi == 2) 
         {
-            printf(" \n--Masuk ke Akun Anda--\n");
-            printf("Masukkan Username: ");
+            printf(" \n--Masuk ke Akun Anda--\n \n");
+            printf("Masukkan Username : ");
             scanf("%s", username);
-            printf("Masukan Password: ");
+            printf("Masukkan Password : ");
             scanf("%s", password);
 
-            while (strcmp(username, usernameTersimpan) !=0 || strcmp(password, passwordTersimpan) !=0)
+            if (strcmp(usernameTersimpan, "") == 0 && strcmp(passwordTersimpan, "") == 0)
             {
-                printf("Data Tidak Benar, Silahkan Ulangi\n");
-                printf("Masukkan Username: ");
-                scanf("%s", username);
-                printf("Masukkan Password: ");
-                scanf("%s", password);
+                printf(" \nSign Up Terlebih Dahulu!\n");
             }
-            printf(" \n"
-                  "sign In berhasil!\n"
-                  "              \n");
-            signInBerhasil = 1;
-            
+            else
+            {
+                while (strcmp(username, usernameTersimpan) != 0 || strcmp(password, passwordTersimpan) != 0)
+                {
+                    printf("Data Tidak Benar, Silahkan Ulangi!\n");
+                    print("Masukkan Username ! ");
+                    scanf("%s", username);
+                    printf("Masukkan Password : ");
+                    scanf("%s", password);
+                }
+                printf(" \n"
+                       "Sign In Berhasil!\n");
+                signInBerhasil = 1;
+            }
+
             while (signInBerhasil == 1)
             {
-                keMenuUtama == 0;
-                printf("--Menu LiSA--\n"
+                keMenuUtama=0;
+                menuLisa = 0;
+                printf(" \n--Menu LiSA--\n"
                        "             \n"
                        "1. Buat Daftar Tugas\n"
                        "2. Edit Status Daftar Tugas\n"
                        "3. Filter Daftar Tugas\n"
                        "4. Hapus Daftar Tugas\n"
-                       "5. Kembali ke Menu Utama\n"
-                       "Pilih Opsi : ");
-                scanf("%d", &opsi);
+                       "5. Tampilkan Daftar Tugas\n"
+                       "6. Kembali ke Menu Utama\n"
+                       "Pilih OPsi : ");
+                scanf("%d", &opsi2);
+            }
+        }
+    }
+}
 
                 if (opsi2 == 1)
                 {
