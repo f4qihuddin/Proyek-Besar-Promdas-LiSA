@@ -494,6 +494,94 @@ int main ()
                         }
 
                         else
+                                    {
+                                        printf(" \nMasukkan Opsi yang Benar!\n");
+                                    }
+                                }
+                            }
+
+                            else if (opsi4 == 4)
+                            {
+                                menuLisa = 1;
+                                break;
+                            }
+
+                            else
+                            {
+                                printf(" \nMasukkan Opsi yang Benar!\n");
+                            }
+                        }
+                    }
+                }
+
+                else if (opsi2 == 4)
+                {
+                    while (menuLisa == 0)
+                    {
+                        printf(" \nIngin Menghapus Daftar Tugas (y/t)? ");
+                        scanf(" %c", &konfirmasi4);
+
+                        if (konfirmasi4 != 'y')
+                        {
+                            menuLisa = 1;
+                        }
+
+                        while (konfirmasi4 == 'y')
+                        {
+                            printf("Nomor Tugas: ");
+                            scanf("%d", &nomorTugas);
+
+                            strcpy(daftarTugasKuliah[nomorTugas].namaTugas, "");
+                            strcpy(daftarTugasKuliah[nomorTugas].matkul, "");
+                            strcpy(daftarTugasKuliah[nomorTugas].detail, "");
+                            strcpy(daftarTugasKuliah[nomorTugas].status, "");
+                            strcpy(daftarTugasKuliah[nomorTugas].deadline.bulan, "");
+                            daftarTugasKuliah[nomorTugas].deadline.tanggal = 0;
+                            daftarTugasKuliah[nomorTugas].deadline.tahun = 0;
+
+                            printf(" \nIngin Menghapus Daftar Tugas Lagi (y/t)? ");
+                            scanf(" %c", &konfirmasi4);
+                        }
+
+                        while (menuLisa == 0)
+                        {
+                            printf(" \n------------------------- DAFTAR TUGAS -------------------------------\n");
+                            for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                            {
+                                tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                            }
+                            printf("----------------------------------------------------------------------\n");
+                            printf(" \nKembali ke Menu LiSA (y/t)? ");
+                            scanf(" %c", &konfirmasi5);
+                            menuLisa = keMenuLisa(konfirmasi5);
+                        }
+                    }
+                }
+
+                else if (opsi2 == 5)
+                {
+                    while (menuLisa == 0)
+                    {
+                        printf(" \nIngin Menampilkan Daftar Tugas (y/t)? ");
+                        scanf(" %c", &konfirmasi7);
+
+                        if (konfirmasi7 == 'y')
+                        {
+                            while (menuLisa == 0)
+                            {
+                                printf(" \n------------------------- DAFTAR TUGAS -------------------------------\n");
+                                for (nomorTugas = 1; nomorTugas < 51; nomorTugas++)
+                                {
+                                    tampilanDaftarTugas(nomorTugas, daftarTugasKuliah[nomorTugas].namaTugas, daftarTugasKuliah[nomorTugas].matkul, daftarTugasKuliah[nomorTugas].detail, daftarTugasKuliah[nomorTugas].status, daftarTugasKuliah[nomorTugas].deadline.tanggal, daftarTugasKuliah[nomorTugas].deadline.bulan, daftarTugasKuliah[nomorTugas].deadline.tahun);
+                                }
+                                printf("----------------------------------------------------------------------\n");
+                                printf(" \nKembali ke Menu LiSA (y/t)? ");
+                                scanf(" %c", &konfirmasi5);
+                                menuLisa = keMenuLisa(konfirmasi5);
+                            }
+                        }
+
+                        else
                         {
                             menuLisa = 1;
                         }
